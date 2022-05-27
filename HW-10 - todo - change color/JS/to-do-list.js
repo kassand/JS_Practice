@@ -2,12 +2,15 @@
 const addTaskButton = document.querySelector('.add-task');
 
 addTaskButton.addEventListener("click", onClick);
+
 const ulForTasks = document.getElementById('added-task');
 let inputValue = document.getElementById('task-name'); 
 
 function onClick() {
 
     let addTask = document.createElement('li');   
+    addTask.className = "todo-item";
+    let todoItem = document.querySelectorAll('todo-item');
     let itemName = document.createTextNode(inputValue.value);
 
     addTask.appendChild(itemName);
@@ -26,37 +29,39 @@ function onClick() {
       span.appendChild(closeIcon);
       addTask.appendChild(span);
 
-      var close = document.getElementsByClassName("close");
-      var i;
-      for (i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
-          let div = this.parentElement;
-          div.style.display = "none";
-        }
+      addTask.addEventListener("click", onTodoClick);
+
+      function onTodoClick(el) {
+
+      //  I can not figure out why forEach() medod does not work 
+
+        // todoItem.forEach(function(elem) {
+        //   if(elem.target.className === "close") {
+        //     deleteTask (elem.target);
+        //   }
+
+        // }); 
+
+          if(el.target.className === "close") {
+            deleteTask (el.target);
+          }  
+        
+        changeBg(el);        
       }
+            
+      // Delete task 
+      function deleteTask (elem) {
 
-      // Change bg color 
-      addTask.addEventListener("click", changeBg);
+        elem.closest(".todo-item").remove();
 
+      }
+      
+      // Change color 
       function changeBg() {
 
         addTask.classList.toggle("clicked");
 
-      }     
-      changeBg();
-
-      // function onCloseClick(event) {
-      //   onDeleteTask (event);
-      // }
-      // onCloseClick();
-      
-      // Delete task
-      // function onDeleteTask (event) {
-        // console.log(event.target);
-      //   event.target.closest(".close-task").remove();
-      // }
-      // onDeleteTask();
-     
+      }         
 }
 
 function clearInputValue () {
