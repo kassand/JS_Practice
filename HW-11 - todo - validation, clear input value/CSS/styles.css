@@ -1,0 +1,72 @@
+.todo-container {
+    padding: 100px 150px;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0B3D91;
+}
+
+input {
+    padding: 20px;
+    border: 2px solid #8F9EB9;
+    border-radius: 2px;
+    width: 200px;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+input:focus {
+    color: gray;
+}
+
+.show-error {
+    color: red;
+}
+
+button {
+    font-weight: 700;
+    font-size: 18px;
+    padding: 16px;
+    background-color: #f36305;
+    border-radius: 20px;
+    border: none;
+    margin-left: 25px;
+    cursor: pointer;
+
+}
+button:hover {
+    color: #fff
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    font-size: 18px;
+    padding: 8px 0;
+    text-transform: capitalize;
+    position: relative
+}
+
+#added-task li {
+    background-color: yellow;
+    margin: 16px;
+    padding: 10px 8px;
+}
+
+#added-task li.clicked {
+    background-color: green;
+    cursor: pointer;
+}    
+
+.close {
+    padding: 8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 10px;   
+    cursor: pointer; 
+}
